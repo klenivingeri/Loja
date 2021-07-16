@@ -1,0 +1,13 @@
+.header{
+    background-color: var(--purple-50);
+    border-top: 7px solid var(--purple-100);
+    color: var(--white);
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+
+    .right{
+        width: 100%;
+    }
+}
