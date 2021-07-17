@@ -1,0 +1,14 @@
+.header{
+
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+
+    .right{
+        width: 100%;
+    }
+}
+.trace{
+    border-top: 7px solid var(--purple-100);
+}
