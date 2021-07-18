@@ -1,36 +1,76 @@
-import { useMemo } from "react";
-import { useState, useEffect } from "react"
+import { useMemo, useState } from "react";
+
 import { Container } from "../components/atoms/container";
+import { Galery } from "../components/organisms/galery";
 import { Card } from "../components/molecules/card";
+import { H1 } from "../components/atoms/h1";
+import { Link } from "react-router-dom";
 
 
-interface Repository{
-    
-        title: string,
-        description: string,
-        id: number,
-    
+interface item{
+    title: string,
+    description: string,
+    id: number,
+    price:number,
+    image: string
 }
 
 export default function Home(){
-
-    const [products, setRepositories] = useState<Repository[]>([]);
-    useMemo( () => {// chamando API
-        fetch('http://localhost:4000/api/products')
-        .then(response => response.json())
-        .then(data => setRepositories(data.products))
-    },[]);
     
+    const [products, setProducts] = useState<item[]>([]);
+
+    useMemo( () => {// chamando API
+        fetch('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
+        .then(response => response.json())
+        .then(data => setProducts(data.products))
+    },[])
+    
+    
+     function getLocalStorage(){
+
+        const storagedList = localStorage.getItem('@product:list'); // busca no  localStorage
+    
+        if (storagedList){
+
+            console.log('eu existo')
+
+        return JSON.parse(storagedList);
+
+        }
+        return [];
+
+    } // getLocalStorage 
+
+    function checkedList(product:any){
+        
+        const updateList = [...getLocalStorage()];
+
+        const productExists = updateList.find(productList => productList.id === product.id);
+
+        if(productExists){
+            return "red"
+        }
+        return "white"
+
+    } // checkedList
+
     
     return(
         
-            <Container background="white" padding={40} >
+            <Container background="white" padding={30} >
                 <>
-                {products.map((product) => {
-                  return(<Card key={product.id} product={product} />)
-              })}
-                </> 
-            
+                    <H1 text="Home" />
+                    
+
+                    <Galery>
+                        <>
+                            {products.map((product) => {
+
+                            return(<Card key={product.id} product={product} active={checkedList(product)}  />)
+                            })}
+                        </>
+                    </Galery>
+                </>
             </Container>
         
     )

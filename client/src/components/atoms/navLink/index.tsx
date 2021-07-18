@@ -1,4 +1,5 @@
 import { ElementType,  } from "react";
+import { Link } from "react-router-dom";
 import './styles.scss'
 interface NavLinkProps{
     Icon: ElementType;
@@ -10,7 +11,7 @@ export function NavLink({Icon, href , children , ...rest}: NavLinkProps){
     return(
         <div className="nav-link">
             <Icon  size={20} />
-            <a href={href}>{children}</a>
+            <Link to={href}>{children}</Link>
         </div>
     )
 

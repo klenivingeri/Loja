@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 export function Logo(){
     return(
-        <h1 className="h1">MagaNets</h1>
+        <h1 className="logo"><Link to="/Home">MagaNets</Link></h1>
     )
 }

@@ -1,12 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes'
 import { Header } from './components/organisms/header';
-import Home from './pages/Home';
+
 import './App.scss'
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Home />
+      <BrowserRouter>
+          <Header />
+          <Routes />
+      </BrowserRouter>
+    
     </div>
   );
 }

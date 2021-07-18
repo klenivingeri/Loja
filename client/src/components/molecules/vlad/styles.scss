@@ -1,0 +1,27 @@
+.arrow{
+ position: absolute;
+    top: -5px;
+    left: 4px;
+
+    .square{
+        height: 31px;
+        width: 31px;
+        background: black ;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px 3px 0px 0px;
+        
+        .triangle{
+            margin-top: 30px;
+            height: 24px;
+            width: 24px;
+            background: black ;
+            transform: rotate(-135deg);
+            border-radius: 3px;
+    
+        }
+    }
+
+}
