@@ -4,7 +4,7 @@ import { Container } from "../components/atoms/container";
 import { Galery } from "../components/organisms/galery";
 import { Card } from "../components/molecules/card";
 import { H1 } from "../components/atoms/h1";
-import { Link } from "react-router-dom";
+
 
 
 interface item{
@@ -20,7 +20,7 @@ export default function Home(){
     const [products, setProducts] = useState<item[]>([]);
 
     useMemo( () => {// chamando API
-        fetch('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
+        fetch('http://localhost:4000/api/products/')
         .then(response => response.json())
         .then(data => setProducts(data.products))
     },[])
@@ -60,8 +60,7 @@ export default function Home(){
             <Container background="white" padding={30} >
                 <>
                     <H1 text="Home" />
-                    
-
+                
                     <Galery>
                         <>
                             {products.map((product) => {

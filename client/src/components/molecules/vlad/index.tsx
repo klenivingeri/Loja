@@ -19,8 +19,6 @@ export function Vlap({product ,active} : VlapProps){
     const {handlesaveLocalStorag } = useContext(WishlistContext)
     const [color, setActive] = useState(active)
 
-
-
     function handleaddlist(){
 
         handlesaveLocalStorag(product)

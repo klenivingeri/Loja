@@ -5,6 +5,9 @@ import { Galery } from "../components/organisms/galery";
 import { H1 } from "../components/atoms/h1";
 import { useState } from "react";
 import { Card } from "../components/molecules/card";
+import { WishlistContext } from '../context/whishlist.context'
+import { useContext } from "react";
+import { useEffect } from "react";
 
 interface item{
     title: string,
@@ -13,39 +16,31 @@ interface item{
     price:number,
     image: string
 }
-
+ 
 export default function Wishlist(){
-
-
-    const [products, setProducts] = useState<item[]>(()=>{
-        const storagedList = localStorage.getItem('@product:list'); // busca no  localStorage
-
-        if (storagedList){
-
-        return JSON.parse(storagedList);
-
-        }
-    return [];
-
-    })
     
-    console.log(products)
-    
-    
+    const {  wishlistList } = useContext(WishlistContext)
 
+    const [products, setProducts] = useState<item[]>(wishlistList)
+    
+    useEffect(()=>{
 
+        setProducts(wishlistList)
+
+    },[wishlistList])
+ 
     return(
         <Container background="white" padding={30} >
         <>
             <H1 text="Home > Lista de desejos" />
             <Galery>
                 <>
-                <>
-                            {products.map((product) => {
+                    <>
+                        {products.map((product) => {
 
-                            return(<Card key={product.id} product={product}  />)
-                            })}
-                        </>
+                        return(<Card key={product.id} product={product}  />)
+                        })}
+                    </>
                 </>
             </Galery>
         </>

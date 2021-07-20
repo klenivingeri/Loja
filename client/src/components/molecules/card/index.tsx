@@ -8,6 +8,7 @@ import './styles.scss'
 
 
 interface CardProps{
+    
     key: number
     active?:string
     product:{
@@ -29,10 +30,10 @@ export function Card({product , active} : CardProps){
     return(
 
         <div className="card">
-            { active ? <Vlap product={product} active={active}  /> : <IconCLose />  }
+            { active ? <Vlap product={product} active={active}  /> : <IconCLose productId={product.id}/>  }
                 
                 
-            <Img img="https://th.bing.com/th/id/OIP.4554DhjyLZbQy_B4j_96-gHaIq?pid=ImgDet&rs=1"  />
+            <Img img="https://th.bing.com/th/id/OIP.4554DhjyLZbQy_B4j_96-gHaIq?pid=ImgDet&rs=1"   />
 
            <div className="title">{product.title}</div> 
            <div className="price">{valor}</div> 
