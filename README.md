@@ -11,7 +11,6 @@ Adicionado
 - Na primeira vez que a pagina é carregada, é armazenado o dia e os produtos no localStorage, quando necessario visitar
 a pagina(tela) de produtos novamente ela já esta carregada, é atualizado a cada dia.
 
-
   #### Dicas:
 - Testes são excelentes para descrever como o código funciona! Nós gostamos muito de testes;
 - Organizar a estrutura do código, classes e pacotes, também é relevante;
@@ -36,5 +35,6 @@ x Faça funcionar no Internet Explorer 8 pelo menos;
 
 # INICIAR PROJETO
 
- - yarn install
- - yarn dev 
+Executar dentro da pasta client `-yarn install`
+Executar dentro da pasta raiz `-yarn install`
+Executar dentro da pasta raiz  `- yarn dev` 
