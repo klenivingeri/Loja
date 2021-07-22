@@ -7,7 +7,7 @@ Como objetivo, você deve criar 2 páginas (telas), conforme a seguir:
 - Implemente algum mecanismo para salvar os produtos na wishlist do cliente. Exemplos: localStorage, cookie, 
 sessionStorage, banco noSql no Bff. Fique a vontade para escolher.
 
-Adicionado
+#### Adicionado:
 - Na primeira vez que a pagina é carregada, é armazenado o dia e os produtos no localStorage, quando necessario visitar
 a pagina(tela) de produtos novamente ela já esta carregada, é atualizado a cada dia.
 
