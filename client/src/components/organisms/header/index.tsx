@@ -7,25 +7,35 @@ import './styles.scss'
 
 export function Header(){
     return(
-        <>
-            <div className="trace"></div>
+        
+            <div className="trace">
+            
+            <Container 
+                background="#63308f" 
+                padding={45}
+            >
 
-            <Container background="#63308f" padding={45}>
-
-                <div className="header">
+                <div className="header" aria-label="header">
 
                     <div className="left">
+
                         <Logo />
+
                     </div>
 
                     <div className="right">
+
                         <HeaderLink />
+
                         <Search />
+
                     </div>
 
                 </div>
 
             </Container>
-        </>
+        </div>
+
+        
     )
 }

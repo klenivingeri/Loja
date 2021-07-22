@@ -5,11 +5,17 @@ import { WishlistContextProvider } from './context/whishlist.context';
 
 
 ReactDOM.render(
+  
   <React.StrictMode>
+
     <WishlistContextProvider>
+
       <App />
+
     </WishlistContextProvider>
+
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 

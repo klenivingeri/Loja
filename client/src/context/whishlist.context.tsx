@@ -1,43 +1,52 @@
 import { createContext, useState, ReactNode } from 'react'
 
 interface WishlistContextProps{
+
     children: ReactNode;
 
 }
 
 interface item{
+
     title: string,
     description: string,
     id: number,
     price:number,
     image: string
+
 }
 
 interface WishlistConteDatad{
+
     handlesaveLocalStorag:(product:any) => void;
-    getLocalStorage:() => void;
     removeItemWishlist:( id : number ) => void;
+    handleGetRouter:( router : string ) => void;
+    getLocalStorage:() => void;
     wishlistList: item[]
+    router:string;
+    
 }
 
 
 export const WishlistContext = createContext({} as WishlistConteDatad )
 
 export const WishlistContextProvider = ({ children, ...rest }: WishlistContextProps) => {
-    
-    const [active, setActive] = useState("")
 
-    const [wishlistList, setWishlistList] =useState<item[]>(()=>{
+    const [router, setRouter ] = useState("/Home")
 
-        const storagedList = localStorage.getItem('@product:list'); 
+    const [wishlistList, setWishlistList] = useState<item[]> (() => {
 
-        if (storagedList){
+        const storagedList = localStorage.getItem('@product:list'); // busca no  localStorage
 
-            return JSON.parse(storagedList);
+            if (storagedList){
+
+        return JSON.parse(storagedList);
 
         }
     return [];
+    
     }) // setWishlistList
+
 
     function getLocalStorage(){
 
@@ -45,48 +54,48 @@ export const WishlistContextProvider = ({ children, ...rest }: WishlistContextPr
     
         if (storagedList){
 
-            return JSON.parse(storagedList);
+        return JSON.parse(storagedList);
 
         }
         return [];
 
     } //getLocalStorage
 
+
     function handlesaveLocalStorag(product:any){
- 
-        const updateList = [...getLocalStorage()];
+        
+        const updateList = [...wishlistList];
 
         const productExists = updateList.find(productList => productList.id === product.id);
 
         if(productExists){
 
-            alert('Produto já adicionado na Lista de Desejos')
+            removeItemWishlist(product.id)
 
         }else{
-
-            const newProdut = {
-                    ...product, 
-                }
             
-            updateList.push(newProdut)
+            updateList.push(product)
 
+            setWishlistList(updateList)
+            
             localStorage.setItem('@product:list', JSON.stringify(updateList));
 
         }
 
-    } //handlesaveLocalStorag
 
+    } //handlesaveLocalStorag
 
 
     function removeItemWishlist( id : number ){
 
-        const updateList = [...getLocalStorage()];
+        const updateList = [...wishlistList];
 
         const removeItemWishlist = updateList.findIndex(product => product.id === id)
-
         
         if(removeItemWishlist >= 0){
+
             updateList.splice(removeItemWishlist, 1)
+
             localStorage.setItem('@product:list', JSON.stringify(updateList));
 
         }
@@ -95,13 +104,20 @@ export const WishlistContextProvider = ({ children, ...rest }: WishlistContextPr
     } // removeItemWishlist
 
 
+     function handleGetRouter( router : string ){
+        setRouter(router)
+        
+     } //handleGetRouter
 
     return(
+
         <WishlistContext.Provider value={{
+            handleGetRouter,
             handlesaveLocalStorag,
             getLocalStorage,
             removeItemWishlist,
-            wishlistList
+            wishlistList,
+            router
         }}>
             {children} 
         </WishlistContext.Provider>

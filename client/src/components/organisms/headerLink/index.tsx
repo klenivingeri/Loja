@@ -1,14 +1,37 @@
 import { NavLink } from "../../atoms/navLink";
-import {RiMapPin2Fill, RiHeartFill } from 'react-icons/ri';
+import { RiMapPin2Fill, RiHeartFill } from 'react-icons/ri';
 import { IoIosCall } from 'react-icons/io'
 import './styles.scss'
 export function HeaderLink(){
     return(
-        <div className="header-link">
+        <div className="header-link" aria-label="header-link" >
             
-        <NavLink Icon={RiMapPin2Fill} href="/Wishlist"> Cidade: São Paulo </NavLink>
-        <NavLink Icon={IoIosCall} href="/Wishlist"> Centrar de atendimento </NavLink>
-        <NavLink Icon={RiHeartFill} href="/Wishlist"> Lista de desejos </NavLink>
+            <NavLink 
+                Icon={RiMapPin2Fill} 
+                href="/Wishlist"
+            >
+
+                Cidade: São Paulo      
+            
+            </NavLink>
+
+            <NavLink 
+                Icon={IoIosCall} 
+                href="/Wishlist"
+            >
+
+                Centrar de atendimento 
+            
+            </NavLink>
+
+            <NavLink 
+                Icon={RiHeartFill} 
+                href="/Wishlist"
+            > 
+                
+                Lista de desejos 
+
+            </NavLink>
 
         </div>
     )

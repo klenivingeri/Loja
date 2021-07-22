@@ -1,6 +1,8 @@
-import { ElementType,  } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ElementType } from "react";
+import { WishlistContext } from "../../../context/whishlist.context";
 import './styles.scss'
+
 interface NavLinkProps{
     Icon: ElementType;
     href: string;
@@ -8,11 +10,24 @@ interface NavLinkProps{
 }
 
 export function NavLink({Icon, href , children , ...rest}: NavLinkProps){
+
+     const { handleGetRouter } = useContext(WishlistContext)
+
     return(
-        <div className="nav-link">
+
+        <a 
+            href="#!" 
+            onClick={() => handleGetRouter(href)} 
+            className="nav-link" 
+            aria-label="nav-link"
+        >
+
             <Icon  size={20} />
-            <Link to={href}>{children}</Link>
-        </div>
+
+            {children}
+        
+        </a>
+
     )
 
 }

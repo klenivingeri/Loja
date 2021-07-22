@@ -9,8 +9,17 @@ interface ContainerProps{
 
 export function Container({children, background, padding} : ContainerProps){
     return(
-        <div className="container" style={{padding:padding, background:background }}>
+        <div 
+            className="container" 
+            id="container" 
+            style={{
+                padding:padding, 
+                background:background
+            }}
+        >
+
             {children}
+            
         </div>
     )
 }

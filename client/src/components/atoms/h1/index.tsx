@@ -5,7 +5,6 @@ interface h1Props{
 }
 
 export function H1( {text} :h1Props){
-
     return(
 
         <h1 className="h1"> 

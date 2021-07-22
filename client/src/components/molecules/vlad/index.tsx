@@ -6,7 +6,7 @@ import './styles.scss'
 import { useState } from 'react';
 
 interface VlapProps{
-    active?:string
+    active?:boolean
     product:{
         title: string,
         description: string,
@@ -16,28 +16,45 @@ interface VlapProps{
     }
 }
 export function Vlap({product ,active} : VlapProps){
+
     const {handlesaveLocalStorag } = useContext(WishlistContext)
-    const [color, setActive] = useState(active)
+
+    const [colorActive, setActive] = useState(active)
 
     function handleaddlist(){
 
         handlesaveLocalStorag(product)
 
-        setActive("red")
+        if(colorActive === true){
+
+            setActive(true)
+
+        }else{
+            
+            setActive(false)
+        }
     }
 
     return(
-        <div className="arrow">
+
+        <div 
+            className="arrow" 
+            aria-label="arrow" 
+        >
            
-            <div className="square" onClick={() => handleaddlist()}>
+            <a href="#!" 
+                className="square" 
+                onClick={() => handleaddlist()}
+            >
                 
-                    <IconHeart color={color} />
+                <IconHeart color={active ? "red" : "white" } />
                 
                 <div className="triangle">
-                
                 </div>
-            </div>
+
+            </a>
             
         </div>
+
     )
 }

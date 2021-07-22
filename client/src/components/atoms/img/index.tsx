@@ -6,6 +6,15 @@ interface ImgProps{
 
 export function Img({ img, name, id }: ImgProps){
     return(
-        <img id={id} className="" src={img} height="200" alt={name} />
+
+        <img 
+            id={id}
+            src={img}  
+            alt={name} 
+            className="image" 
+            aria-label="image-product" 
+            height="200" 
+        />
+        
     )
 }
