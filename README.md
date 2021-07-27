@@ -11,7 +11,7 @@ sessionStorage, banco noSql no Bff. Fique a vontade para escolher.
 - Na primeira vez que a pagina é carregada, é armazenado o dia e os produtos no localStorage, quando necessario visitar
 a pagina(tela) de produtos novamente ela já esta carregada, é atualizado a cada dia.
 
-  #### Dicas:
+#### Dicas:
 - Testes são excelentes para descrever como o código funciona! Nós gostamos muito de testes;
 - Organizar a estrutura do código, classes e pacotes, também é relevante;
 - Tente reutilizar o máximo possível de código;
