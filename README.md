@@ -35,6 +35,6 @@ x Faça funcionar no Internet Explorer 8 pelo menos;
 
 # INICIAR PROJETO
 
-Executar dentro da pasta client `-yarn install`
-Executar dentro da pasta raiz `-yarn install`
-Executar dentro da pasta raiz  `- yarn dev` 
+- Executar dentro da pasta client `yarn install`
+- Executar dentro da pasta raiz `yarn install`
+- Executar dentro da pasta raiz  `yarn dev` 
